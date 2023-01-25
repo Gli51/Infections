@@ -88,7 +88,7 @@ SpriteRenderer:
   m_Size: {x: 2.56, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &9210060224420458448
@@ -100,27 +100,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 9210060224420458447}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 686478718328bd348915c5d05a5a0e01, type: 3}
+  m_Script: {fileID: 11500000, guid: 195819f72016c4ba8bff4bcdfe6aeef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  bulletPrefab: {fileID: 1516617292126257879, guid: d8d55dfacb762f64cbf4c05cc402a4de,
-    type: 3}
-  animator: {fileID: 0}
-  gameManager: {fileID: 0}
-  thrustSpeed: 200
-  maxSpeed: 20
-  rotationSpeed: 200
-  maxAngularVelocity: 100
-  invulnerability: 0
-  respawnPoint: {x: 0, y: 0}
-  HORIZONTAL_AXIS: Horizontal
-  VERTICAL_AXIS: Vertical
-  FIRE: Fire1
-  engineAudioSource: {fileID: 9210060224420458454}
-  effectsAudioSource: {fileID: 9210060224420458455}
-  thrustSound: {fileID: 8300000, guid: 73f123fe5b04d0646b709615804f7a33, type: 3}
-  fireSound: {fileID: 8300000, guid: f3a16dfdb1b655c4fa0272251e868081, type: 3}
+  infectedState: 1
+  game: {fileID: 0}
+  maxSpeed: 0
 --- !u!114 &9210060224420458449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,11 +116,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 9210060224420458447}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23b7522836cb8bf4ca73b7b3ef99d6a6, type: 3}
+  m_Script: {fileID: 11500000, guid: 713a0a2d79522498cb403af21f7ad7e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
-  margin: 0.05
+  margin: 0.1
 --- !u!50 &9210060224420458445
 Rigidbody2D:
   serializedVersion: 4
@@ -376,7 +361,7 @@ AudioSource:
     m_RotationOrder: 4
 --- !u!95 &526989110
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -393,4 +378,4 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
