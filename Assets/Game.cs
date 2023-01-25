@@ -36,7 +36,6 @@ public class Game : MonoBehaviour
 
         gameOverUI.SetActive(false);
         SpawnPlayer();
-        AsteroidWave();
         
     }
 
@@ -54,120 +53,8 @@ public class Game : MonoBehaviour
     //called at the beginning and when the played dies
     public void SpawnPlayer()
     {
-        //initial position
-        player.transform.position = player.respawnPoint;
-        player.invulnerability = respawnInvulnerability;
         player.gameObject.SetActive(true);
     }
-
-    //spawn a number of asteroids
-    public void AsteroidWave()
-    {
-        //this is the width of the screen in world units (it depends on the camera settings)
-        float screenWidth = Camera.main.orthographicSize * Camera.main.aspect * 2;
-        float screenHeight = Camera.main.orthographicSize * 2;
-
-        for (int i = 0; i < asteroidsPerWave; i++)
-        {
-            
-            //randomize the side in which the asteroid spawns
-            //since it's in integer it will be only 0, 1, 2, 3 
-            int side = Random.Range(0, 4);
-            
-            Vector2 spawnPoint;
-
-            //top
-            if (side == 0)
-            {
-                //random x point on the top edge + add a margin so it's right out of the screen
-                spawnPoint = new Vector2(Random.Range(-screenWidth / 2, screenWidth / 2), screenHeight / 2 + spawnMargin);
-            }
-            else if (side == 1)
-            {
-                //bottom
-                spawnPoint = new Vector2(Random.Range(-screenWidth / 2, screenWidth / 2), -screenHeight / 2 - spawnMargin);
-                //trajectory = new Vector2(Random.Range(-1f, 1f), 1);
-            }
-            else if (side == 2)
-            {
-                //left
-                spawnPoint = new Vector2(-screenWidth / 2 - spawnMargin, Random.Range(-screenHeight / 2, screenHeight / 2));
-                
-            }
-            else 
-            {
-                //right
-                spawnPoint = new Vector2(screenWidth / 2 +spawnMargin, Random.Range(-screenHeight / 2, screenHeight / 2));
-                
-            }
-
-            
-            //create the instance from the prefab
-            Asteroid newAsteroid = Instantiate(asteroidPrefab);
-            newAsteroid.transform.position = spawnPoint;
-            
-            //add a force in the defined trajectory
-            newAsteroid.SetTrajectory(Random.insideUnitCircle);
-            
-        }
-    }
-
-
-    //called by the asteroid
-    public void AsteroidDestroyed(Asteroid asteroid)
-    {
-        //move the particle effect to the point and play it
-        //the particles exist and die independently so I just need one spawner for everything
-        explosionEffect.transform.position = asteroid.transform.position;
-        explosionEffect.Play();
-
-        //score based on size
-        if (asteroid.size < 0.7f)
-        {
-            score += 100; // small asteroid
-            audioSource.PlayOneShot(smallExplosionSound, 1);
-        }
-        else if (asteroid.size < 1.4f)
-        {
-            score += 50; // medium asteroid
-            audioSource.PlayOneShot(mediumExplosionSound, 1);
-        }
-        else
-        {
-            score += 25; // large asteroid
-            audioSource.PlayOneShot(bigExplosionSound, 1);
-        }
-
-        //update the score text
-        scoreText.text = score.ToString();
-
-        //check the winning condition
-        //get all the asteroids in the scene
-        Asteroid[] asteroids = FindObjectsOfType<Asteroid>();
-
-        //problem a: Destroy() takes effect at the end of the frame
-        //so I can't check when there are no asteroids from this function called upon destruction
-        //instead I set size to 0 to the destroyed asteroids and check that value for all asteroids
-        bool stageClear = true;
-        
-        //cycle through all the asteroids put each in variable a
-        foreach (Asteroid a in asteroids)
-        {
-            //check the size var
-            if (a.size > 0)
-                stageClear = false;
-        }
-
-        //if stage clear is still true there are no asteroids around
-        if(stageClear)
-        {
-            print("Wave over");
-            //increase the asteroids spawned until death
-            asteroidsPerWave++;
-            AsteroidWave();
-        }
-    }
-    
 
     //called by the player
     public void PlayerDeath(Player player)
