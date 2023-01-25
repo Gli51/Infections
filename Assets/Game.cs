@@ -39,15 +39,15 @@ public class Game : MonoBehaviour
     }
   }
 
-  private void Update()
-  {
-    if (state == GameState.END)
+    private void Update()
     {
-      gameOverUI.SetActive(true);
-    }
+        if (state == GameState.END)
+        {
+            gameOverUI.SetActive(true);
+        }
 
-    if (Input.GetMouseButtonDown(0))
-    {
+        if (Input.GetMouseButtonDown(0))
+        {
 
             //if blue turn, become red turn
             if (state == GameState.BLUETURN)
@@ -60,5 +60,6 @@ public class Game : MonoBehaviour
                 state = GameState.BLUETURN; //set game state to blue
                 print("red turn now");
             }
+        }
     }
 }
