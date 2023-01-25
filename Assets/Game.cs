@@ -61,7 +61,7 @@ public class Game : MonoBehaviour
   {
     if (state == GameState.END)
     {
-      gameOverUI.GetComponent(Text).Text = "{winner} Wins!"
+      gameOverUI.GetComponent(Text).Text = "{winner} Wins!";
       gameOverUI.SetActive(true);
     }
 
