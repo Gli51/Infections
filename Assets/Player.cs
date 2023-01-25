@@ -5,7 +5,7 @@ public class Player : MonoBehaviour
   public Rigidbody2D rb;
 
   // 0 = invalid player, 1 = blue player, 2 = red player
-  public int infectedState = 1;
+  public int infectedState;
   public Game game;
   public float maxSpeed;
 
@@ -42,6 +42,7 @@ public class Player : MonoBehaviour
   {
   }
 
+
   private void OnCollisionEnter2D(Collision2D collision)
   {
     // when player collide with obstacles, the player will bounce off the obstacles
@@ -59,11 +60,16 @@ public class Player : MonoBehaviour
 
     if (collision.gameObject.CompareTag("InfectableCell"))
     {
-      //check if its infected already, decrease opponent's score
+      //if cell is infected already...
+      if (collision.gameObject.GetComponent<infectedState> != this.infectedState)
+      {
+        //decrease opponent's score
+        //game.DecreaseScore(this);
+        return
+      }
       //then increase this player's score
-
       //notify the gameManager
-      game.CellInfected(this);
+      game.IncreaseScore(this);
     }
   }
 
