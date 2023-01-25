@@ -19,6 +19,22 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+
+      if (game.state == GameState.END)
+      {
+        return;
+      }
+
+      if (game.state == GameState.BLUETURN && infectedState == 2)
+      {
+        return;
+      }
+
+      if (game.state == GameState.REDTURN && infectedState == 1)
+      {
+        return;
+      }
+
       // detect mouse input
       if (Input.GetMouseButtonDown(0))
       {
@@ -30,6 +46,15 @@ public class Player : MonoBehaviour
         Vector3 direction = (worldPos - transform.position).normalized;
         // apply force in direction of mouse
         rb.AddForce(direction * maxSpeed);
+
+        if (infectedState == 1) // blue player
+        {
+          game.state = GameState.REDTURN;
+        }
+        else if (infectedState == 2) // red player
+        {
+          game.state = GameState.BLUETURN;
+        }
       }
     }
 

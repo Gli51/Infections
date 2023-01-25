@@ -6,30 +6,33 @@ public enum GameState { START, REDTURN, BLUETURN, END }
 public class Game : MonoBehaviour
 {
     public Player player;
-    public Cell cell;
+    public InfectableCell[] cell;
     public GameObject gameOverUI;
 
 
-    public Transform playerSpawn;
+    public Transform blueSpawn;
+    public Transform redSpawn;
 
-    public int score = 0;
-    public int score2 = 0;
+    public int blueScore = 0;
+    public int redScore = 0;
 
-    public bool redTurn = true;
-
-
+    public GameState state = GameState.BLUETURN;
 
     //executed at the beginning
     private void Start()
     {
-        GameState.START;
+  
         SetupGame();
-        
+
     }
 
     private void SetupGame()
     {
         //Instantiate red and blue players
+        Instantiate(player, blueSpawn.position, Quaternion.identity);
+        player.infectedState = 1; // this is blue player
+        Instantiate(player, redSpawn.position, Quaternion.identity);
+        player.infectedState = 2; // this is red player
         
     }
 
