@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Player : MonoBehaviour
+public class BluePlayer : MonoBehaviour
 {
     public Rigidbody2D rb;
     public Game game;
