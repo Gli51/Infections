@@ -1,2 +1,10 @@
 *.meta
 .DS_Store
+Logs
+Library
+Temp
+UserSettings
+Infections.sln
+Assembly-CSharp.csproj
+.vscode
+.vs
