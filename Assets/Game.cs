@@ -61,7 +61,7 @@ public class Game : MonoBehaviour
   {
     if (state == GameState.END)
     {
-      gameOverUI.GetComponent(Text).Text = "{winner} Wins!";
+      //gameOverUI.GetComponent(Text).Text = "{winner} Wins!";
       gameOverUI.SetActive(true);
     }
 
@@ -87,9 +87,9 @@ public class Game : MonoBehaviour
     //increase personal score
     if (player == redPlayer)
     {
-      redScore += 1
+            redScore += 1;
     }
     //if score = max number of cells, game.winner = this
-    game.state = GameState.END;
+    state = GameState.END;
   }
 }

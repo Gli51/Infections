@@ -61,12 +61,12 @@ public class Player : MonoBehaviour
     if (collision.gameObject.CompareTag("InfectableCell"))
     {
       //if cell is infected already...
-      if (collision.gameObject.GetComponent<infectedState> != this.infectedState)
-      {
-        //decrease opponent's score
-        //game.DecreaseScore(this);
-        return
-      }
+      //if (collision.gameObject.GetComponent<infectedState> != this.infectedState)
+      //{
+      //  //decrease opponent's score
+      //  //game.DecreaseScore(this);
+      //  return
+      //}
       //then increase this player's score
       //notify the gameManager
       game.IncreaseScore(this);
