@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 
-public class BluePlayer : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public Rigidbody2D rb;
+
+    // 0 = invalid player, 1 = blue player, 2 = red player
+    public int infectedState = 1;
     public Game game;
     public float maxSpeed;
     private void Awake()
