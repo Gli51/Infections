@@ -56,6 +56,11 @@ public class Player : MonoBehaviour
       // we apply the reflection as the new direction
       rb.velocity = reflection * maxSpeed;
     }
+
+    if (collision.gameObject.CompareTag(""))
+    {
+      return
+    }
   }
 
 }

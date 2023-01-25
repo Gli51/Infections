@@ -9,6 +9,7 @@ public class Game : MonoBehaviour
   public Player redPlayer;
   public InfectableCell[] cell;
   public GameObject gameOverUI;
+  private variable winner;
 
 
   public Vector3 blueSpawn;
@@ -43,6 +44,7 @@ public class Game : MonoBehaviour
   {
     if (state == GameState.END)
     {
+      gameOverUI.GetComponent(Text).Text = "{winner} Wins!"
       gameOverUI.SetActive(true);
     }
 
