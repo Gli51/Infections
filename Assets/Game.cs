@@ -39,27 +39,27 @@ public class Game : MonoBehaviour
     }
   }
 
-    private void Update()
+  private void Update()
+  {
+    if (state == GameState.END)
     {
-        if (state == GameState.END)
-        {
-            gameOverUI.SetActive(true);
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-
-            //if blue turn, become red turn
-            if (state == GameState.BLUETURN)
-            {
-                state = GameState.REDTURN; //set game state to red
-                print("blue turn now");
-            }
-            else if (state == GameState.REDTURN)
-            {
-                state = GameState.BLUETURN; //set game state to blue
-                print("red turn now");
-            }
-        }
+      gameOverUI.SetActive(true);
     }
+
+    if (Input.GetMouseButtonDown(0))
+    {
+
+      //if blue turn, become red turn
+      if (state == GameState.BLUETURN)
+      {
+        bluePlayer.Move();
+        state = GameState.REDTURN; //set game state to red
+      }
+      else if (state == GameState.REDTURN)
+      {
+        redPlayer.Move();
+        state = GameState.BLUETURN; //set game state to blue
+      }
+    }
+  }
 }
