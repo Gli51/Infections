@@ -30,6 +30,23 @@ public class Game : MonoBehaviour
 
   private void SetupGame()
   {
+    Validate();
+    SpawnInfectableCells();
+  }
+
+  private void SpawnInfectableCells() {
+    // spawn infectable cells
+    for (int i = 0; i < cell.Length; i++)
+    {
+      Instantiate(cell[i], new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0), Quaternion.identity);
+      while(cell[i].isTouching(cell)) {
+        cell[i].transform.position = new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0);
+      }
+    }
+  }
+
+  private void Validate() {
+
     if (bluePlayer == null)
     {
       Debug.LogWarning("Blue player is not set");
