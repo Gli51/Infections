@@ -443,18 +443,6 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
---- !u!114 &526989106 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9210060224420458448, guid: 260bd8212affdbb4594cc9ed8b8d4fa4,
-    type: 3}
-  m_PrefabInstance: {fileID: 9210060224812030178}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 686478718328bd348915c5d05a5a0e01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &556392472
 GameObject:
   m_ObjectHideFlags: 0
@@ -5614,24 +5602,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad8b3962ce9757488d42736bfac1f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 526989106}
-  asteroidPrefab: {fileID: 4394751245055917805, guid: 784457ffd007edb439542cee61bb2ca8,
-    type: 3}
-  explosionEffect: {fileID: 945290021}
+  bluePlayer: {fileID: 0}
+  redPlayer: {fileID: 0}
+  cell: []
   gameOverUI: {fileID: 1759306016}
-  score: 0
-  lives: 3
-  asteroidsPerWave: 4
-  spawnMargin: 1
-  scoreText: {fileID: 1159035112}
-  livesText: {fileID: 2013675850}
-  respawnDelay: 2
-  respawnInvulnerability: 2
-  audioSource: {fileID: 1031442193}
-  smallExplosionSound: {fileID: 8300000, guid: 50036c8d77fcb4f4ba4afe155c8959af, type: 3}
-  mediumExplosionSound: {fileID: 8300000, guid: 62b50eb7b7d3e4d448ca89898c6b7c0c,
-    type: 3}
-  bigExplosionSound: {fileID: 8300000, guid: 0c5cc0241be40c842a9a699235b6bb27, type: 3}
+  blueSpawn: {x: 0, y: 0, z: 0}
+  redSpawn: {x: 1, y: 0, z: 0}
+  blueScore: 0
+  redScore: 0
+  state: 2
 --- !u!82 &1031442193
 AudioSource:
   m_ObjectHideFlags: 0
