@@ -57,9 +57,11 @@ public class Player : MonoBehaviour
       rb.velocity = reflection * maxSpeed;
     }
 
-    if (collision.gameObject.CompareTag(""))
+    if (collision.gameObject.CompareTag("InfectableCell"))
     {
-      return
+      //increase personal score
+      //if score = max number of cells, game.winner = this
+      //game.state = GameState.END;
     }
   }
 
