@@ -54,4 +54,16 @@ public class InfectableCell : MonoBehaviour
         }
       }
     }
+
+    public bool isTouching(InfectableCell[] otherCells) {
+      for (int i = 0; i < otherCells.Length; i++) {
+        if (otherCells[i] == this || otherCells[i] == null) {
+          continue;
+        }
+        if (this.GetComponent<Collider2D>().IsTouching(otherCells[i].GetComponent<Collider2D>()) == true) {
+          return true;
+        }
+      }
+      return false;
+    }
 }
