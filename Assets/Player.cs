@@ -59,9 +59,11 @@ public class Player : MonoBehaviour
 
     if (collision.gameObject.CompareTag("InfectableCell"))
     {
-      //increase personal score
-      //if score = max number of cells, game.winner = this
-      //game.state = GameState.END;
+      //check if its infected already, decrease opponent's score
+      //then increase this player's score
+
+      //notify the gameManager
+      game.CellInfected(this);
     }
   }
 

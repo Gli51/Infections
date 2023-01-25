@@ -9,7 +9,7 @@ public class Game : MonoBehaviour
   public Player redPlayer;
   public InfectableCell[] cell;
   public GameObject gameOverUI;
-  private variable winner;
+  private string winner;
 
 
   public Vector3 blueSpawn;
@@ -80,5 +80,16 @@ public class Game : MonoBehaviour
         state = GameState.BLUETURN; //set game state to blue
       }
     }
+  }
+
+  public void IncreaseScore(Player player)
+  {
+    //increase personal score
+    if (player == redPlayer)
+    {
+      redScore += 1
+    }
+    //if score = max number of cells, game.winner = this
+    game.state = GameState.END;
   }
 }
