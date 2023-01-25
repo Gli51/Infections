@@ -10,8 +10,8 @@ public class Game : MonoBehaviour
     public GameObject gameOverUI;
 
 
-    public Transform blueSpawn;
-    public Transform redSpawn;
+    public Vector3 blueSpawn;
+    public Vector3 redSpawn;
 
     public int blueScore = 0;
     public int redScore = 0;
@@ -29,11 +29,19 @@ public class Game : MonoBehaviour
     private void SetupGame()
     {
         //Instantiate red and blue players
-        Instantiate(player, blueSpawn.position, Quaternion.identity);
+        Instantiate(player, blueSpawn, Quaternion.identity);
         player.infectedState = 1; // this is blue player
-        Instantiate(player, redSpawn.position, Quaternion.identity);
+        Instantiate(player, redSpawn, Quaternion.identity);
         player.infectedState = 2; // this is red player
+      Debug.Log("Blue player state: " + player.infectedState + " Red player state: " + player.infectedState);
         
+    }
+
+    private void Update()
+    {
+      // print both player's state
+      Debug.Log("Blue player state: " + player.infectedState + " Red player state: " + player.infectedState);
+
     }
 
 }
