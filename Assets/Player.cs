@@ -39,7 +39,18 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-      
+      // when player collide with obstacles, the player will bounce off the obstacles
+      if (collision.gameObject.CompareTag("Obstacles"))
+      {
+        // we find the normal of the collision
+        Vector3 normal = collision.contacts[0].normal;
+        // we find the direction of the player
+        Vector3 direction = rb.velocity.normalized;
+        // we find the reflection of the direction
+        Vector3 reflection = Vector3.Reflect(direction, normal);
+        // we apply the reflection as the new direction
+        rb.velocity = reflection * maxSpeed;
+      }
     }
 
 }
