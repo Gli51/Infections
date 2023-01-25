@@ -2,12 +2,16 @@
 
 public class Player : MonoBehaviour
 {
-  public Rigidbody2D rb;
+ public Rigidbody2D rb;
 
-  // 0 = invalid player, 1 = blue player, 2 = red player
-  public int infectedState = 1;
-  public Game game;
-  public float maxSpeed;
+ // 0 = invalid player, 1 = blue player, 2 = red player
+    public int infectedState = 1;
+    public Game game;
+    public float maxSpeed;
+
+    public int turnWait = 2;
+
+
   private void Awake()
   {
     if (rb == null)
@@ -22,39 +26,44 @@ public class Player : MonoBehaviour
     // detect mouse input
     if (Input.GetMouseButtonDown(0))
     {
+        //sets movement
+        // get mouse position
+        Vector3 mousePos = Input.mousePosition;
+        // convert mouse position to world position
+        Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
+        // get direction from player to mouse position
+        Vector3 direction = (worldPos - transform.position).normalized;
+        // apply force in direction of mouse
+        rb.AddForce(direction * maxSpeed);
+
       if (game.state == GameState.END)
       {
         return;
       }
 
-      if (game.state == GameState.BLUETURN && infectedState == 2)
+      //if blue turn, become red turn
+      if (game.state == GameState.BLUETURN)
       {
-        return;
+                game.state = GameState.REDTURN; //set game state to red
+                print("blue turn now");
       }
-
-      if (game.state == GameState.REDTURN && infectedState == 1)
+      else if (game.state == GameState.REDTURN)
       {
-        return;
-      }
-      // get mouse position
-      Vector3 mousePos = Input.mousePosition;
-      // convert mouse position to world position
-      Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
-      // get direction from player to mouse position
-      Vector3 direction = (worldPos - transform.position).normalized;
-      // apply force in direction of mouse
-      rb.AddForce(direction * maxSpeed);
+                game.state = GameState.BLUETURN; //set game state to blue
+                print("red turn now");
+            }
+      
 
-        if (infectedState == 1) // blue player
-        {
-            game.state = GameState.REDTURN;
-            Debug.Log("Set it to red turn");
-        }
-        else if (infectedState == 2) // red player
-        {
-            game.state = GameState.BLUETURN;
-            Debug.Log("Set it to blue turn");
-        }
+        //if (infectedState == 1 && turnWait <= 0) // blue player
+        //{
+        //    game.state = GameState.REDTURN;
+        //    Debug.Log("Set it to red turn");
+        //}
+        //else if (infectedState == 2) // red player
+        //{
+        //    game.state = GameState.BLUETURN;
+        //    Debug.Log("Set it to blue turn");
+        //}
     }
   }
 

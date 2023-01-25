@@ -45,5 +45,20 @@ public class Game : MonoBehaviour
     {
       gameOverUI.SetActive(true);
     }
-  }
+
+    if (Input.GetMouseButtonDown(0))
+    {
+
+            //if blue turn, become red turn
+            if (state == GameState.BLUETURN)
+            {
+                state = GameState.REDTURN; //set game state to red
+                print("blue turn now");
+            }
+            else if (state == GameState.REDTURN)
+            {
+                state = GameState.BLUETURN; //set game state to blue
+                print("red turn now");
+            }
+    }
 }
