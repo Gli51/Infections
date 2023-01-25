@@ -63,9 +63,6 @@ public class Asteroid : MonoBehaviour
                 size = 0;
             }
 
-            //notify the game manager
-            gameManager.AsteroidDestroyed(this);
-
             // Destroy the current asteroid since it is either replaced by two
             // new asteroids or small enough to be destroyed by the bullet
             Destroy(gameObject);
