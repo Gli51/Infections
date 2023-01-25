@@ -45,16 +45,16 @@ public class Player : MonoBehaviour
       // apply force in direction of mouse
       rb.AddForce(direction * maxSpeed);
 
-      if (infectedState == 1) // blue player
-      {
-        game.state = GameState.REDTURN;
-        Debug.Log("Set it to red turn");
-      }
-      else if (infectedState == 2) // red player
-      {
-        game.state = GameState.BLUETURN;
-        Debug.Log("Set it to blue turn");
-      }
+        if (infectedState == 1) // blue player
+        {
+            game.state = GameState.REDTURN;
+            Debug.Log("Set it to red turn");
+        }
+        else if (infectedState == 2) // red player
+        {
+            game.state = GameState.BLUETURN;
+            Debug.Log("Set it to blue turn");
+        }
     }
   }
 

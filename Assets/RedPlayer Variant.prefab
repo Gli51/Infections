@@ -9,6 +9,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9210060224420458444, guid: 9dc74220cd4cd439daabc75847e06400,
         type: 3}
+      propertyPath: m_Size.x
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 9210060224420458444, guid: 9dc74220cd4cd439daabc75847e06400,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 9210060224420458444, guid: 9dc74220cd4cd439daabc75847e06400,
+        type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
       value: 0.64
       objectReference: {fileID: 0}
@@ -31,6 +41,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RedPlayer Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 9210060224420458448, guid: 9dc74220cd4cd439daabc75847e06400,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9210060224420458448, guid: 9dc74220cd4cd439daabc75847e06400,
+        type: 3}
+      propertyPath: infectedState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9210060224420458450, guid: 9dc74220cd4cd439daabc75847e06400,
         type: 3}
