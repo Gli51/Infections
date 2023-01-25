@@ -5,7 +5,8 @@ public enum GameState { START, REDTURN, BLUETURN, END }
 
 public class Game : MonoBehaviour
 {
-    public Player player;
+    public Player bluePlayer;
+    public Player redPlayer;
     public InfectableCell[] cell;
     public GameObject gameOverUI;
 
@@ -29,19 +30,15 @@ public class Game : MonoBehaviour
     private void SetupGame()
     {
         //Instantiate red and blue players
-        Instantiate(player, blueSpawn, Quaternion.identity);
-        player.infectedState = 1; // this is blue player
-        Instantiate(player, redSpawn, Quaternion.identity);
-        player.infectedState = 2; // this is red player
-      Debug.Log("Blue player state: " + player.infectedState + " Red player state: " + player.infectedState);
+        Instantiate(bluePlayer, blueSpawn, Quaternion.identity);
+        bluePlayer.infectedState = 1; // this is blue player
+        Instantiate(redPlayer, redSpawn, Quaternion.identity);
+        redPlayer.infectedState = 2; // this is red player
         
     }
 
     private void Update()
     {
-      // print both player's state
-      Debug.Log("Blue player state: " + player.infectedState + " Red player state: " + player.infectedState);
-
     }
 
 }
