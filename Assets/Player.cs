@@ -67,8 +67,7 @@ public class Player : MonoBehaviour
       //  //game.DecreaseScore(this);
       //  return
       //}
-      //then increase this player's score
-      //notify the gameManager
+      //then increase this player's score by notifying the gameManager
       game.IncreaseScore(this);
     }
   }

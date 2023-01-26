@@ -21,6 +21,7 @@ public class Game : MonoBehaviour
 
   public Text blueScoreText;
   public Text redScoreText;
+  public Text winnerText;
 
   public GameState state = GameState.BLUETURN;
 
@@ -70,9 +71,15 @@ public class Game : MonoBehaviour
 
   private void Update()
   {
+    //checks if any player has the full score
+    if (redScore == maxpoints || blueScore == maxpoints)
+    {
+      return;
+    }
+
     if (state == GameState.END)
     {
-      //gameOverUI.GetComponent(Text).Text = "{winner} Wins!";
+      winnerText.text = "{winner} Wins!";
       gameOverUI.SetActive(true);
     }
 
