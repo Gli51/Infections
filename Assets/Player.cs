@@ -56,11 +56,7 @@ public class Player : MonoBehaviour
       Vector3 reflection = Vector3.Reflect(direction, normal);
       // we apply the reflection as the new direction
       rb.velocity = reflection * maxSpeed;
-    }
 
-    if (collision.gameObject.CompareTag("InfectableCell"))
-    {
-      //if cell is infected already...
       //if (collision.gameObject.GetComponent<infectedState> != this.infectedState)
       //{
       //  //decrease opponent's score
