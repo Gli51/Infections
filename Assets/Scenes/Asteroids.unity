@@ -5958,7 +5958,7 @@ MonoBehaviour:
   redScore: 0
   blueScoreText: {fileID: 861868505}
   redScoreText: {fileID: 2013675850}
-  winnerText: {fileID: 0}
+  winnerText: {fileID: 196317666}
   state: 2
 --- !u!82 &1031442193
 AudioSource:
