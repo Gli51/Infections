@@ -56,7 +56,7 @@ public class InfectableCell : MonoBehaviour
     }
 
     public bool isTouching(List<Component> other) {
-      for (int i = 0; i < other.Capacity; i++) {
+      for (int i = 0; i < other.Count; i++) {
         if (other[i] == this || other[i] == null) {
           continue;
         }

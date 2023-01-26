@@ -28,9 +28,9 @@ public class Obstacles : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
     }
-
+    
     public bool isTouching(List<Component> other) {
-      for (int i = 0; i < other.Capacity; i++) {
+      for (int i = 0; i < other.Count; i++) {
         if (other[i] == this || other[i] == null) {
           continue;
         }

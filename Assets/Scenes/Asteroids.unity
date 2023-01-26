@@ -5948,6 +5948,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bluePlayer: {fileID: 599738840}
   redPlayer: {fileID: 1253606774}
+  obstaclePrefab: {fileID: -3456587795234025734, guid: 35434db81988fa28f81bc6e5bafe459b,
+    type: 3}
+  obstacles: []
   cellPrefab: {fileID: 7308747930106678192, guid: 49dc00d48a10d43368990890984a1813,
     type: 3}
   cells: []
@@ -5959,6 +5962,7 @@ MonoBehaviour:
   blueScoreText: {fileID: 861868505}
   redScoreText: {fileID: 2013675850}
   winnerText: {fileID: 196317666}
+  totalCells: 10
   state: 2
 --- !u!82 &1031442193
 AudioSource:

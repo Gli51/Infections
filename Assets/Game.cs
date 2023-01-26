@@ -10,6 +10,8 @@ public class Game : MonoBehaviour
 {
   public Player bluePlayer;
   public Player redPlayer;
+  public Obstacles obstaclePrefab; // act as a prefab
+  public List<Obstacles> obstacles; // tracking all obstacles
   public InfectableCell cellPrefab; // act as a prefab
   public List<InfectableCell> cells; // tracking all cells
   public GameObject gameOverUI;
@@ -38,7 +40,7 @@ public class Game : MonoBehaviour
         gameOverUI.SetActive(false);
         Validate();
         SpawnInfectableCells();
-
+        SpawnObstacles();
   }
 
 
@@ -47,21 +49,32 @@ public class Game : MonoBehaviour
     // print debug
     cells = new List<InfectableCell>(TOTALCELLS);
     // spawn infectable cells
-    for (int i = 0; i < cells.Count; i++)
+    for (int i = 0; i < 10; i++)
     {
-      // print debug
-      cells[i] = Instantiate(cellPrefab, new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0), Quaternion.identity);
-      cells[i].gameManager = this;
-      while (cells[i].isTouching(cells.Cast<Component>().ToList()))
+      InfectableCell newCell = Instantiate(cellPrefab, new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0), Quaternion.identity);
+      cells.Add(newCell);
+      newCell.gameManager = this;
+      while (newCell.isTouching(cells.Cast<Component>().ToList()))
       {
-        cells[i].transform.position = new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0);
+        newCell.transform.position = new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0);
       }
     }
   }
 
   private void SpawnObstacles()
   {
-    // spawn obstacles
+    obstacles = new List<Obstacles>();
+    // spawn infectable cells
+    for (int i = 0; i < 10; i++)
+    {
+      Obstacles newObstacles = Instantiate(obstaclePrefab, new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0), Quaternion.identity);
+      obstacles.Add(newObstacles);
+      newObstacles.gameManager = this;
+      while (newObstacles.isTouching(obstacles.Cast<Component>().ToList()) || newObstacles.isTouching(cells.Cast<Component>().ToList()))
+      {
+        newObstacles.transform.position = new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0);
+      }
+    }
   }
 
   private void Validate()
