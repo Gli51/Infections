@@ -7,7 +7,8 @@ public class Game : MonoBehaviour
 {
   public Player bluePlayer;
   public Player redPlayer;
-  public InfectableCell[] cell;
+  public InfectableCell cellPrefab; // act as a prefab
+  public InfectableCell[] cells; // tracking all cells
   public GameObject gameOverUI;
   private string winner;
 
@@ -29,28 +30,33 @@ public class Game : MonoBehaviour
         blueScoreText.text = blueScore.ToString();
         redScoreText.text = redScore.ToString();
         gameOverUI.SetActive(false);
-        SetupGame();
+        Validate();
+        SpawnInfectableCells();
 
   }
 
-  private void SetupGame()
+
+  private void SpawnInfectableCells()
   {
-    Validate();
-    SpawnInfectableCells();
-  }
-
-  private void SpawnInfectableCells() {
+    // print debug
+    Debug.Log("Spawning cells");
+    cells =  new InfectableCell[10];
     // spawn infectable cells
-    for (int i = 0; i < cell.Length; i++)
+    for (int i = 0; i < cells.Length; i++)
     {
-      Instantiate(cell[i], new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0), Quaternion.identity);
-      while(cell[i].isTouching(cell)) {
-        cell[i].transform.position = new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0);
+      // print debug
+      Debug.Log("Spawning cell " + i);
+      cells[i] = Instantiate(cellPrefab, new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0), Quaternion.identity);
+      cells[i].gameManager = this;
+      while (cells[i].isTouching(cells))
+      {
+        cells[i].transform.position = new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0);
       }
     }
   }
 
-  private void Validate() {
+  private void Validate()
+  {
 
     if (bluePlayer == null)
     {
