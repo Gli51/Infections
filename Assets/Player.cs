@@ -57,10 +57,10 @@ public class Player : MonoBehaviour
       // we apply the reflection as the new direction
       rb.velocity = reflection * maxSpeed;
 
-      //if (collision.gameObject.GetComponent<infectedState> != this.infectedState)
+      //if (collision.gameObject.infectedState != this.infectedState)
       //{
       //  //decrease opponent's score
-      //  //game.DecreaseScore(this);
+      //  game.DecreaseScore(this);
       //  return
       //}
       //then increase this player's score by notifying the gameManager
