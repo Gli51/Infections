@@ -77,7 +77,7 @@ public class Game : MonoBehaviour
 
     if (state == GameState.END)
     {
-      winnerText.text = "{winner} Wins!";
+      winnerText.text = $"{winner} Wins!";
       gameOverUI.SetActive(true);
     }
 
