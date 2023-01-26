@@ -645,6 +645,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2361638981684300742, guid: 0eade357d98a048f2a286f15980b01c4,
         type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2361638981684300742, guid: 0eade357d98a048f2a286f15980b01c4,
+        type: 3}
       propertyPath: m_EdgeRadius
       value: 0
       objectReference: {fileID: 0}
@@ -5953,6 +5958,7 @@ MonoBehaviour:
   redScore: 0
   blueScoreText: {fileID: 861868505}
   redScoreText: {fileID: 2013675850}
+  winnerText: {fileID: 0}
   state: 2
 --- !u!82 &1031442193
 AudioSource:
@@ -6169,6 +6175,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mass
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9054389836670234075, guid: a329a00d574714d419bbfcef3a0acbb8,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a329a00d574714d419bbfcef3a0acbb8, type: 3}

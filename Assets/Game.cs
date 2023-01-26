@@ -70,10 +70,10 @@ public class Game : MonoBehaviour
   private void Update()
   {
     //checks if any player has the full score
-    if (redScore == maxpoints || blueScore == maxpoints)
-    {
-      return;
-    }
+    //if (redScore == maxpoints || blueScore == maxpoints)
+    //{
+    //  return;
+    //}
 
     if (state == GameState.END)
     {
