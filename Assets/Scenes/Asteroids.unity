@@ -5936,7 +5936,7 @@ MonoBehaviour:
   cellPrefab: {fileID: 7308747930106678192, guid: 49dc00d48a10d43368990890984a1813,
     type: 3}
   cells: []
-  gameOverUI: {fileID: 0}
+  gameOverUI: {fileID: 1759306016}
   blueSpawn: {x: 0, y: 0, z: 0}
   redSpawn: {x: 0, y: 0, z: 0}
   blueScore: 0
