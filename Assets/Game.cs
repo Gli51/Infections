@@ -23,6 +23,8 @@ public class Game : MonoBehaviour
   public Text redScoreText;
   public Text winnerText;
 
+  public int totalCells = 10;
+
   public GameState state = GameState.BLUETURN;
 
   //executed at the beginning
