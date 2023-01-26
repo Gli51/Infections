@@ -26,7 +26,7 @@ public class Game : MonoBehaviour
   public Text redScoreText;
   public Text winnerText;
 
-  public int totalCells = 10;
+  public const int TOTALCELLS = 10;
 
   public GameState state = GameState.BLUETURN;
 
@@ -45,7 +45,7 @@ public class Game : MonoBehaviour
   private void SpawnInfectableCells()
   {
     // print debug
-    cells = new List<InfectableCell>(10);
+    cells = new List<InfectableCell>(TOTALCELLS);
     // spawn infectable cells
     for (int i = 0; i < cells.Count; i++)
     {
@@ -79,11 +79,7 @@ public class Game : MonoBehaviour
 
   private void Update()
   {
-    //checks if any player has the full score
-    //if (redScore == maxpoints || blueScore == maxpoints)
-    //{
-    //  return;
-    //}
+
 
     if (state == GameState.END)
     {
@@ -108,22 +104,31 @@ public class Game : MonoBehaviour
     }
   }
 
-  public void IncreaseScore(Player player)
-  {
+public void IncreaseScore(Player player)
+{
     //increase personal score
     if (player == redPlayer)
     {
-            redScore += 1;
-            redScoreText.text = redScore.ToString();
+        redScore += 1;
+        redScoreText.text = redScore.ToString();
     }
     if (player == bluePlayer)
-        {
-            blueScore += 1;
-            blueScoreText.text = blueScore.ToString();
-        }
-    //if score = max number of cells, game.winner = this
-    state = GameState.END;
-  }
+    {
+        blueScore += 1;
+        blueScoreText.text = blueScore.ToString();
+    }
+    //checks if any player has the full score
+    if (redScore == TOTALCELLS)
+    {
+        winner = "Red Player";
+        state = GameState.END;
+    }
+    else if (blueScore == TOTALCELLS)
+    {
+        winner = "Blue Player";
+        state = GameState.END;
+    }
+}
 
   public void DecreaseScore(Player player)
   {
