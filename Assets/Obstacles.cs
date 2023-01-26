@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 
 public class Obstacles : MonoBehaviour
 {
@@ -27,5 +27,17 @@ public class Obstacles : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+    }
+
+    public bool isTouching(List<Component> other) {
+      for (int i = 0; i < other.Capacity; i++) {
+        if (other[i] == this || other[i] == null) {
+          continue;
+        }
+        if (this.GetComponent<Collider2D>().IsTouching(other[i].GetComponent<Collider2D>()) == true) {
+          return true;
+        }
+      }
+      return false;
     }
 }

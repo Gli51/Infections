@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using System.Linq;
+
 public enum GameState { START, REDTURN, BLUETURN, END }
 
 public class Game : MonoBehaviour
@@ -8,7 +11,7 @@ public class Game : MonoBehaviour
   public Player bluePlayer;
   public Player redPlayer;
   public InfectableCell cellPrefab; // act as a prefab
-  public InfectableCell[] cells; // tracking all cells
+  public List<InfectableCell> cells; // tracking all cells
   public GameObject gameOverUI;
   private string winner;
 
@@ -42,18 +45,23 @@ public class Game : MonoBehaviour
   private void SpawnInfectableCells()
   {
     // print debug
-    cells =  new InfectableCell[10];
+    cells = new List<InfectableCell>(10);
     // spawn infectable cells
-    for (int i = 0; i < cells.Length; i++)
+    for (int i = 0; i < cells.Count; i++)
     {
       // print debug
       cells[i] = Instantiate(cellPrefab, new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0), Quaternion.identity);
       cells[i].gameManager = this;
-      while (cells[i].isTouching(cells))
+      while (cells[i].isTouching(cells.Cast<Component>().ToList()))
       {
         cells[i].transform.position = new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0);
       }
     }
+  }
+
+  private void SpawnObstacles()
+  {
+    // spawn obstacles
   }
 
   private void Validate()

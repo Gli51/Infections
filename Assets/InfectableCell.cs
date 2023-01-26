@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using System.Collections.Generic;
 
 public class InfectableCell : MonoBehaviour
 {
@@ -55,12 +55,12 @@ public class InfectableCell : MonoBehaviour
       }
     }
 
-    public bool isTouching(InfectableCell[] otherCells) {
-      for (int i = 0; i < otherCells.Length; i++) {
-        if (otherCells[i] == this || otherCells[i] == null) {
+    public bool isTouching(List<Component> other) {
+      for (int i = 0; i < other.Capacity; i++) {
+        if (other[i] == this || other[i] == null) {
           continue;
         }
-        if (this.GetComponent<Collider2D>().IsTouching(otherCells[i].GetComponent<Collider2D>()) == true) {
+        if (this.GetComponent<Collider2D>().IsTouching(other[i].GetComponent<Collider2D>()) == true) {
           return true;
         }
       }
