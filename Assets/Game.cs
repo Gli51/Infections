@@ -114,4 +114,19 @@ public class Game : MonoBehaviour
     //if score = max number of cells, game.winner = this
     state = GameState.END;
   }
+
+  public void DecreaseScore(Player player)
+  {
+        //decrease score of player
+        if (player == redPlayer)
+        {
+            redScore -= 1;
+            redScoreText.text = redScore.ToString();
+        }
+        if (player == bluePlayer)
+        {
+            blueScore -= 1;
+            blueScoreText.text = blueScore.ToString();
+        }
+    }
 }
