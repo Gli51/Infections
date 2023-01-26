@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
   private void OnCollisionEnter2D(Collision2D collision)
   {
     // when player collide with obstacles, the player will bounce off the obstacles
-    if (collision.gameObject.CompareTag("Obstacles"))
+    if (collision.gameObject.CompareTag("Asteroid"))
     {
       // we find the normal of the collision
       Vector3 normal = collision.contacts[0].normal;

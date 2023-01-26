@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7403506314047640474}
   - component: {fileID: 4268889422668211224}
   - component: {fileID: 7308747930106678192}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CellPrefab
-  m_TagString: Untagged
+  m_TagString: Asteroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -40,13 +40,11 @@ public class Game : MonoBehaviour
   private void SpawnInfectableCells()
   {
     // print debug
-    Debug.Log("Spawning cells");
     cells =  new InfectableCell[10];
     // spawn infectable cells
     for (int i = 0; i < cells.Length; i++)
     {
       // print debug
-      Debug.Log("Spawning cell " + i);
       cells[i] = Instantiate(cellPrefab, new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0), Quaternion.identity);
       cells[i].gameManager = this;
       while (cells[i].isTouching(cells))
