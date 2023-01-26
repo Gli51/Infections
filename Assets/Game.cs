@@ -18,13 +18,18 @@ public class Game : MonoBehaviour
   public int blueScore = 0;
   public int redScore = 0;
 
+  public Text blueScoreText;
+  public Text redScoreText;
+
   public GameState state = GameState.BLUETURN;
 
   //executed at the beginning
   private void Start()
   {
-
-    SetupGame();
+        blueScoreText.text = blueScore.ToString();
+        redScoreText.text = redScore.ToString();
+        gameOverUI.SetActive(false);
+        SetupGame();
 
   }
 
@@ -88,7 +93,13 @@ public class Game : MonoBehaviour
     if (player == redPlayer)
     {
             redScore += 1;
+            redScoreText.text = redScore.ToString();
     }
+    if (player == bluePlayer)
+        {
+            blueScore += 1;
+            blueScoreText.text = blueScore.ToString();
+        }
     //if score = max number of cells, game.winner = this
     state = GameState.END;
   }

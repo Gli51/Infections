@@ -297,7 +297,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 59e1beb5807ac9643bf665e453e2cfb7, type: 3}
+    m_Font: {fileID: 12800000, guid: 8275ca163675e458a87285a60848acae, type: 3}
     m_FontSize: 144
     m_FontStyle: 0
     m_BestFit: 0
@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 324073990}
   - component: {fileID: 324073992}
   m_Layer: 5
-  m_Name: Red Score
+  m_Name: RedScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -854,7 +854,7 @@ GameObject:
   - component: {fileID: 861868506}
   - component: {fileID: 861868505}
   m_Layer: 5
-  m_Name: Text
+  m_Name: BlueText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5939,6 +5939,8 @@ MonoBehaviour:
   redSpawn: {x: 0, y: 0, z: 0}
   blueScore: 0
   redScore: 0
+  blueScoreText: {fileID: 861868505}
+  redScoreText: {fileID: 2013675850}
   state: 2
 --- !u!82 &1031442193
 AudioSource:
@@ -6047,7 +6049,7 @@ GameObject:
   - component: {fileID: 1159035111}
   - component: {fileID: 1159035113}
   m_Layer: 5
-  m_Name: Blue Score
+  m_Name: BlueScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6380,7 +6382,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 59e1beb5807ac9643bf665e453e2cfb7, type: 3}
+    m_Font: {fileID: 12800000, guid: 8275ca163675e458a87285a60848acae, type: 3}
     m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
@@ -6451,7 +6453,7 @@ GameObject:
   - component: {fileID: 2013675851}
   - component: {fileID: 2013675850}
   m_Layer: 5
-  m_Name: Text
+  m_Name: RedText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
