@@ -151,15 +151,19 @@ public class Game : MonoBehaviour
       //if blue turn, become red turn
       if (state == GameState.BLUETURN)
       {
+        redPlayer.GetComponent<SpriteRenderer>().color = Color.white;
+        bluePlayer.GetComponent<SpriteRenderer>().color = Color.gray;
         bluePlayer.canMove = true;
-        bluePlayer.aimer.SetActive(true);
+        redPlayer.aimer.SetActive(true);
         bluePlayer.Move();
         state = GameState.REDTURN; //set game state to red
       }
       else if (state == GameState.REDTURN)
       {
+        bluePlayer.GetComponent<SpriteRenderer>().color = Color.white;
+        redPlayer.GetComponent<SpriteRenderer>().color = Color.gray;
         redPlayer.canMove = true;
-        redPlayer.aimer.SetActive(true);
+        bluePlayer.aimer.SetActive(true);
         redPlayer.Move();
         state = GameState.BLUETURN; //set game state to blue
       }
