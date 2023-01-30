@@ -28,9 +28,10 @@ public class Player : MonoBehaviour
     // convert mouse position to world position
     Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
     // get direction from player to mouse position
-    Vector3 direction = (worldPos - transform.position).normalized;
+    Vector3 direction = (worldPos - transform.position);
+    Vector2 direction2D = new Vector2(direction.x, direction.y).normalized;
     // apply force in direction of mouse
-    rb.AddForce(direction * maxSpeed);
+    rb.AddForce(direction2D * maxSpeed);
   }
 
 
