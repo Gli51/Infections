@@ -40,12 +40,12 @@ public class ScreenWrapper : MonoBehaviour
 
         if (transform.position.y > screenHeight / 2)
         {
-            newPosition.y = -screenHeight / 2;
+            Debug.Log("Error: Asteroid out of bounds");
         }
 
         if (transform.position.y < -screenHeight / 2)
         {
-            newPosition.y = screenHeight / 2;
+            Debug.Log("Error: Asteroid out of bounds");
         }
 
         //assign it to the transform

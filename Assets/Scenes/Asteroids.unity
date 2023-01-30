@@ -759,7 +759,7 @@ PrefabInstance:
     - target: {fileID: 2361638981684300762, guid: 0eade357d98a048f2a286f15980b01c4,
         type: 3}
       propertyPath: maxSpeed
-      value: 40
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0eade357d98a048f2a286f15980b01c4, type: 3}
@@ -6195,12 +6195,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1064191157}
   - component: {fileID: 1064191158}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Top Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &1064191157
 RectTransform:
@@ -6235,7 +6235,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 140}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6246,7 +6246,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4000, y: 400}
   m_EdgeRadius: 0
 --- !u!1 &1159035110
 GameObject:
@@ -6382,7 +6382,7 @@ PrefabInstance:
     - target: {fileID: 9054389836670234055, guid: a329a00d574714d419bbfcef3a0acbb8,
         type: 3}
       propertyPath: maxSpeed
-      value: 40
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9054389836670234072, guid: a329a00d574714d419bbfcef3a0acbb8,
         type: 3}
@@ -6717,12 +6717,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1797411890}
   - component: {fileID: 1797411891}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Bottom Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &1797411890
 RectTransform:
@@ -6757,7 +6757,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -140}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6768,7 +6768,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4000, y: 400}
   m_EdgeRadius: 0
 --- !u!1 &2001001779
 GameObject:
