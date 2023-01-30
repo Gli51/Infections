@@ -29,6 +29,9 @@ public class Game : MonoBehaviour
   public Text winnerText;
 
   public const int TOTALCELLS = 10;
+  public const float TURN_WAIT_TIME = 1.0f; // 1 second
+  public const bool WAIT_TIL_STATIC = true;
+  private float turnTimer = 0;
 
   public GameState state = GameState.BLUETURN;
 
@@ -100,8 +103,22 @@ public class Game : MonoBehaviour
       gameOverUI.SetActive(true);
     }
 
-    if (Input.GetMouseButtonDown(0))
+    if (Input.GetKeyDown(KeyCode.R))
     {
+      SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    turnTimer += Time.deltaTime;
+
+    // if WAIT_TIL_STATIC is true, then wait until both players are not moving
+    if (WAIT_TIL_STATIC && (bluePlayer.rb.velocity.magnitude > 0.1f || redPlayer.rb.velocity.magnitude > 0.1f))
+    {
+      return;
+    }
+
+    if (Input.GetMouseButtonDown(0) && turnTimer > TURN_WAIT_TIME)
+    {
+      turnTimer = 0;
 
       //if blue turn, become red turn
       if (state == GameState.BLUETURN)

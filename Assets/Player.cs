@@ -9,9 +9,6 @@ public class Player : MonoBehaviour
   public Game game;
   public float maxSpeed;
 
-  public int turnWait = 2;
-
-
   private void Awake()
   {
     if (rb == null)
