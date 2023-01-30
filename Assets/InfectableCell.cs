@@ -46,10 +46,10 @@ public class InfectableCell : MonoBehaviour
           infectedState = collision.gameObject.GetComponent<Player>().infectedState;
           spriteRenderer.sprite = sprites[infectedState];
         }
-        // if the cell is infected by the other player, it will be infected by both players
+        // if the cell is infected by the other player, it will be overwrite
         else if (infectedState != collision.gameObject.GetComponent<Player>().infectedState)
         {
-          infectedState = 3;
+          infectedState = collision.gameObject.GetComponent<Player>().infectedState;
           spriteRenderer.sprite = sprites[infectedState];
         }
       }
