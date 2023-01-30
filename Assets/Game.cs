@@ -28,7 +28,8 @@ public class Game : MonoBehaviour
   public Text redScoreText;
   public Text winnerText;
 
-  public const int TOTALCELLS = 10;
+  public const int TOTAL_CELLS = 10;
+  public const int TOTAL_OBSTACLES = 10;
   public const float TURN_WAIT_TIME = 1.0f; // 1 second
   public const float STATIC_SPEED = 0.1f; // minimum speed that is considered static
   public const bool WAIT_TIL_STATIC = true;
@@ -43,6 +44,8 @@ public class Game : MonoBehaviour
         redScoreText.text = redScore.ToString();
         gameOverUI.SetActive(false);
         Validate();
+
+        // note that the order must be this way
         SpawnInfectableCells();
         SpawnObstacles();
   }
@@ -51,11 +54,15 @@ public class Game : MonoBehaviour
   private void SpawnInfectableCells()
   {
     // print debug
-    cells = new List<InfectableCell>(TOTALCELLS);
+    cells = new List<InfectableCell>();
+    // get half screen size
+    float halfWidth = Camera.main.orthographicSize * Camera.main.aspect;
+    float halfHeight = Camera.main.orthographicSize;
     // spawn infectable cells
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < TOTAL_CELLS; i++)
     {
-      InfectableCell newCell = Instantiate(cellPrefab, new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0), Quaternion.identity);
+      // generate cells within screen
+      InfectableCell newCell = Instantiate(cellPrefab, new Vector3(Random.Range(-halfWidth, halfWidth), Random.Range(-halfHeight, halfHeight), 0), Quaternion.identity);
       cells.Add(newCell);
       newCell.gameManager = this;
       while (newCell.isTouching(cells.Cast<Component>().ToList()))
@@ -68,10 +75,13 @@ public class Game : MonoBehaviour
   private void SpawnObstacles()
   {
     obstacles = new List<Obstacles>();
+    // get half screen size
+    float halfWidth = Camera.main.orthographicSize * Camera.main.aspect;
+    float halfHeight = Camera.main.orthographicSize;
     // spawn infectable cells
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < TOTAL_OBSTACLES; i++)
     {
-      Obstacles newObstacles = Instantiate(obstaclePrefab, new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), 0), Quaternion.identity);
+      Obstacles newObstacles = Instantiate(obstaclePrefab, new Vector3(Random.Range(-halfWidth, halfWidth), Random.Range(-halfHeight, halfHeight), 0), Quaternion.identity);
       obstacles.Add(newObstacles);
       newObstacles.gameManager = this;
       while (newObstacles.isTouching(obstacles.Cast<Component>().ToList()) || newObstacles.isTouching(cells.Cast<Component>().ToList()))
@@ -165,12 +175,12 @@ public void IncreaseScore(Player player)
         blueScoreText.text = blueScore.ToString();
     }
     //checks if any player has the full score
-    if (redScore == TOTALCELLS)
+    if (redScore == TOTAL_CELLS)
     {
         winner = "Red Player";
         state = GameState.END;
     }
-    else if (blueScore == TOTALCELLS)
+    else if (blueScore == TOTAL_CELLS)
     {
         winner = "Blue Player";
         state = GameState.END;

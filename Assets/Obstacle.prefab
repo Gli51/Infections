@@ -141,7 +141,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   rigidbody: {fileID: 0}
   spriteRenderer: {fileID: 0}
-  sprite: {fileID: 21300000, guid: 0ccc508108fa6ed4fa11b4a467d7f609, type: 3}
+  sprite: {fileID: 21300000, guid: ed98d7318e31d47098c694ffeb19d1ee, type: 3}
 --- !u!114 &4885225112499204347
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -41,16 +41,28 @@ public class InfectableCell : MonoBehaviour
       if (collision.gameObject.CompareTag("Player"))
       {
         // if the cell is not infected, it will be infected by the player
+        Player p = collision.gameObject.GetComponent<Player>();
         if (infectedState == 0)
         {
-          infectedState = collision.gameObject.GetComponent<Player>().infectedState;
+          infectedState = p.infectedState;
           spriteRenderer.sprite = sprites[infectedState];
+          if (p == gameManager.redPlayer)
+            gameManager.IncreaseScore(gameManager.redPlayer);
+          else
+            gameManager.IncreaseScore(gameManager.bluePlayer);
         }
         // if the cell is infected by the other player, it will be overwrite
-        else if (infectedState != collision.gameObject.GetComponent<Player>().infectedState)
+        else if (infectedState != p.infectedState)
         {
           infectedState = collision.gameObject.GetComponent<Player>().infectedState;
           spriteRenderer.sprite = sprites[infectedState];
+          if (p == gameManager.redPlayer) {
+            gameManager.DecreaseScore(gameManager.bluePlayer);
+            gameManager.IncreaseScore(gameManager.redPlayer);
+          } else {
+            gameManager.DecreaseScore(gameManager.redPlayer);
+            gameManager.IncreaseScore(gameManager.bluePlayer);
+          }
         }
       }
     }
