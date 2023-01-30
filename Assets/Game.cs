@@ -27,6 +27,7 @@ public class Game : MonoBehaviour
   public Text blueScoreText;
   public Text redScoreText;
   public Text winnerText;
+  public Text turnText;
 
   public const int TOTAL_CELLS = 10;
   public const int TOTAL_OBSTACLES = 10;
@@ -126,19 +127,18 @@ public class Game : MonoBehaviour
 
     if (turnTimer < TURN_WAIT_TIME)
     {
-      // show whose turn it is (Grace: can we change this so it uses another text object and not winnerText?)
+      // show whose turn it is
       if (state == GameState.BLUETURN)
       {
-        winnerText.text = "Green Player's Turn";
+        turnText.text = "Green's Turn";
+        turnText.color = Color.green;
+
       }
       else if (state == GameState.REDTURN)
       {
-        winnerText.text = "Red Player's Turn";
+        turnText.text = "Red's Turn";
+        turnText.color = Color.red;
       }
-      gameOverUI.SetActive(true);
-      return;
-    } else {
-      gameOverUI.SetActive(false);
     }
 
     // if WAIT_TIL_STATIC is true, then wait until both players are not moving

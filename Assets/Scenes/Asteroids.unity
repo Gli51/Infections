@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.16476655, b: 1, a: 1}
+  m_Color: {r: 0.31764707, g: 1, b: 0.7529412, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -297,8 +297,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8275ca163675e458a87285a60848acae, type: 3}
-    m_FontSize: 144
+    m_Font: {fileID: 12800000, guid: ccea4601bc46d44ccba0a4631c41d73c, type: 3}
+    m_FontSize: 90
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -6088,6 +6088,7 @@ MonoBehaviour:
   blueScoreText: {fileID: 861868505}
   redScoreText: {fileID: 2013675850}
   winnerText: {fileID: 196317666}
+  turnText: {fileID: 1658468877}
   state: 2
 --- !u!82 &1031442193
 AudioSource:
@@ -6564,7 +6565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.99607843, g: 0.17254902, b: 0.27058825, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
