@@ -40,14 +40,18 @@ public class Game : MonoBehaviour
   //executed at the beginning
   private void Start()
   {
-        blueScoreText.text = blueScore.ToString();
-        redScoreText.text = redScore.ToString();
-        gameOverUI.SetActive(false);
-        Validate();
+      blueScoreText.text = blueScore.ToString();
+      redScoreText.text = redScore.ToString();
+      gameOverUI.SetActive(false);
+      Validate();
 
-        // note that the order must be this way
-        SpawnInfectableCells();
-        SpawnObstacles();
+      // note that the order must be this way
+      SpawnInfectableCells();
+      SpawnObstacles();
+      //sets blue player and red player aiming to start as blue turn
+      bluePlayer.aimer.SetActive(true);
+      redPlayer.GetComponent<SpriteRenderer>().color = Color.gray;
+      redPlayer.aimer.SetActive(false);
   }
 
 
@@ -122,10 +126,10 @@ public class Game : MonoBehaviour
 
     if (turnTimer < TURN_WAIT_TIME)
     {
-      // show who's turn it is
+      // show whose turn it is (Grace: can we change this so it uses another text object and not winnerText?)
       if (state == GameState.BLUETURN)
       {
-        winnerText.text = "Blue Player's Turn";
+        winnerText.text = "Green Player's Turn";
       }
       else if (state == GameState.REDTURN)
       {

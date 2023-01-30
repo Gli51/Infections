@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
 
     public void Move()
     {
-        ////sets movement
+        ////old code for setting movement
         //// get mouse position
         //Vector3 mousePos = Input.mousePosition;
         //// convert mouse position to world position
@@ -40,6 +40,7 @@ public class Player : MonoBehaviour
         //Vector2 direction2D = new Vector2(direction.x, direction.y).normalized;
         //// apply force in direction of mouse
         //rb.AddForce(direction2D * maxSpeed);
+
         print("mouse released");
         Vector3 mousePos = Input.mousePosition;
         // convert mouse position to world position
@@ -56,6 +57,7 @@ public class Player : MonoBehaviour
 
 private void Update()
     {
+        //aiming arrow follows mouse
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         Vector3 rotation = mousePos - transform.position;
         float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
@@ -65,14 +67,6 @@ private void Update()
         {
             aimer.SetActive(true);
         }
-
-        //if (canMove == true)
-        //{
-        //    //show aiming line to mouse
-
-        //    aimer.SetActive(true);
-        //}
-
 
     }
 
