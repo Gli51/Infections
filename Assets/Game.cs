@@ -143,18 +143,23 @@ public class Game : MonoBehaviour
       return;
     }
 
-    if (Input.GetMouseButtonDown(0) && turnTimer > TURN_WAIT_TIME)
+    //right now this is buggy. Maybe the GetMouseButtonUp should be inside the gamestate condition?
+    if (Input.GetMouseButtonUp(0) && turnTimer > TURN_WAIT_TIME)
     {
       turnTimer = 0;
 
       //if blue turn, become red turn
       if (state == GameState.BLUETURN)
       {
+        bluePlayer.canMove = true;
+        bluePlayer.aimer.SetActive(true);
         bluePlayer.Move();
         state = GameState.REDTURN; //set game state to red
       }
       else if (state == GameState.REDTURN)
       {
+        redPlayer.canMove = true;
+        redPlayer.aimer.SetActive(true);
         redPlayer.Move();
         state = GameState.BLUETURN; //set game state to blue
       }
