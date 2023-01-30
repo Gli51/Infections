@@ -30,6 +30,7 @@ public class Game : MonoBehaviour
 
   public const int TOTALCELLS = 10;
   public const float TURN_WAIT_TIME = 1.0f; // 1 second
+  public const float STATIC_SPEED = 0.1f; // minimum speed that is considered static
   public const bool WAIT_TIL_STATIC = true;
   private float turnTimer = 0;
 
@@ -95,12 +96,13 @@ public class Game : MonoBehaviour
 
   private void Update()
   {
-
+    turnTimer += Time.deltaTime;
 
     if (state == GameState.END)
     {
       winnerText.text = $"{winner} Wins!";
       gameOverUI.SetActive(true);
+      return;
     }
 
     if (Input.GetKeyDown(KeyCode.R))
@@ -108,10 +110,25 @@ public class Game : MonoBehaviour
       SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    turnTimer += Time.deltaTime;
+    if (turnTimer < TURN_WAIT_TIME)
+    {
+      // show who's turn it is
+      if (state == GameState.BLUETURN)
+      {
+        winnerText.text = "Blue Player's Turn";
+      }
+      else if (state == GameState.REDTURN)
+      {
+        winnerText.text = "Red Player's Turn";
+      }
+      gameOverUI.SetActive(true);
+      return;
+    } else {
+      gameOverUI.SetActive(false);
+    }
 
     // if WAIT_TIL_STATIC is true, then wait until both players are not moving
-    if (WAIT_TIL_STATIC && (bluePlayer.rb.velocity.magnitude > 0.1f || redPlayer.rb.velocity.magnitude > 0.1f))
+    if (WAIT_TIL_STATIC && (bluePlayer.rb.velocity.magnitude > STATIC_SPEED || redPlayer.rb.velocity.magnitude > STATIC_SPEED))
     {
       return;
     }
