@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
@@ -13,6 +12,7 @@ public class Player : MonoBehaviour
   public bool canMove;
   private Vector3 mousePos;
   private Camera mainCam;
+  private Vector3 originalLocalScale;
   public GameObject aimer;
 
   private void Awake()
@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
       rb = GetComponent<Rigidbody2D>();
 
     game = FindObjectOfType<Game>();
+    originalLocalScale = transform.localScale;
   }
 
     private void Start()
@@ -54,6 +55,24 @@ private void Update()
         {
             aimer.SetActive(true);
         }
+        float BASE_SPEED = Mathf.Exp(1.0f);
+        // if player is moving, rotate the player to the direction of movement
+        if (rb.velocity.magnitude > BASE_SPEED) // since we are using LogE
+        {
+            float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+            // squeeze the player when moving
+            transform.localScale = new Vector3(originalLocalScale.x, originalLocalScale.y/(Mathf.Log(rb.velocity.magnitude)), originalLocalScale.z);
+        } else {
+            // reset the player size when not moving
+            transform.localScale = new Vector3(originalLocalScale.x, originalLocalScale.y, originalLocalScale.z);
+        }
+        if (transform.localScale.y < originalLocalScale.y)
+        {
+            transform.localScale = new Vector3(originalLocalScale.x, originalLocalScale.y + (transform.localScale.y - originalLocalScale.y)/4.0f, originalLocalScale.z);
+        }
+
 
     }
 
