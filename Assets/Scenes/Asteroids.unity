@@ -675,16 +675,6 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 1.92
       objectReference: {fileID: 0}
-    - target: {fileID: 2361638981684300743, guid: 0eade357d98a048f2a286f15980b01c4,
-        type: 3}
-      propertyPath: m_Mass
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2361638981684300743, guid: 0eade357d98a048f2a286f15980b01c4,
-        type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 68d28298119001ac6976d83d7016f54b, type: 2}
     - target: {fileID: 2361638981684300760, guid: 0eade357d98a048f2a286f15980b01c4,
         type: 3}
       propertyPath: m_Sprite
@@ -6086,6 +6076,8 @@ MonoBehaviour:
     type: 3}
   cells: []
   gameOverUI: {fileID: 1759306016}
+  brightRed: {r: 0, g: 0, b: 0, a: 0}
+  brightGreen: {r: 0, g: 0, b: 0, a: 0}
   blueSpawn: {x: 0, y: 0, z: 0}
   redSpawn: {x: 0, y: 0, z: 0}
   blueScore: 0
@@ -6395,16 +6387,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedPlayer Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 9054389836670234074, guid: a329a00d574714d419bbfcef3a0acbb8,
-        type: 3}
-      propertyPath: m_Mass
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9054389836670234074, guid: a329a00d574714d419bbfcef3a0acbb8,
-        type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 68d28298119001ac6976d83d7016f54b, type: 2}
     - target: {fileID: 9054389836670234075, guid: a329a00d574714d419bbfcef3a0acbb8,
         type: 3}
       propertyPath: m_Size.x
