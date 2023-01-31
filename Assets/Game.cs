@@ -18,8 +18,8 @@ public class Game : MonoBehaviour
   private string winner;
 
   //red and green colors
-  private Color brightGreen;
-  private Color brightRed;
+  public Color brightRed;
+  public Color brightGreen;
 
   //blue and red spawn locations
   public Vector3 blueSpawn;
@@ -53,9 +53,9 @@ public class Game : MonoBehaviour
     gameOverUI.SetActive(false);
     Validate();
 
-    //initialize color variables
-    brightRed = new Color(254, 44, 69);
-    brightGreen = new Color(81, 255, 192);
+    //initialize colors
+    brightRed = new Color32(254, 44, 69, 255);
+    brightGreen = new Color32(81, 255, 192, 255);
 
     // note that the order must be this way
     SpawnInfectableCells();
