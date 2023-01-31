@@ -7,6 +7,8 @@ public class InfectableCell : MonoBehaviour
 
     public new Rigidbody2D rigidbody;
 
+    public CircleCollider2D circleCollider;
+
     // sprite 0, 1, 2 corresponding to not-infected, infected by blue, infected by red
     public SpriteRenderer spriteRenderer;
     public Sprite[] sprites;

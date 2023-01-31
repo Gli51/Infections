@@ -6,6 +6,7 @@ public class Obstacles : MonoBehaviour
     public Game gameManager;
 
     public new Rigidbody2D rigidbody;
+    public CircleCollider2D circleCollider;
     public SpriteRenderer spriteRenderer;
     public Sprite sprite;
 
@@ -18,6 +19,9 @@ public class Obstacles : MonoBehaviour
 
         if(rigidbody == null)
             rigidbody = GetComponent<Rigidbody2D>();
+        
+        if(circleCollider == null)
+            circleCollider = GetComponent<CircleCollider2D>();
     }
 
     private void Start()
