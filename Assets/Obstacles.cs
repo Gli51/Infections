@@ -14,7 +14,7 @@ public class Obstacles : MonoBehaviour
 
     private bool duringAnimation;
     public const float ANIMATION_TIME = 0.08f;
-    public const float ANIMATION_SCALE = 1.05f;
+    public const float ANIMATION_SCALE = 1.025f;
     private void Awake()
     {
         gameManager = FindObjectOfType<Game>();
