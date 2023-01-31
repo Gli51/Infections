@@ -17,13 +17,19 @@ public class Game : MonoBehaviour
   public GameObject gameOverUI;
   private string winner;
 
+  //red and green colors
+  private Color brightGreen;
+  private Color brightRed;
 
+  //blue and red spawn locations
   public Vector3 blueSpawn;
   public Vector3 redSpawn;
 
+  //player scores
   public int blueScore = 0;
   public int redScore = 0;
 
+  //UI text
   public Text blueScoreText;
   public Text redScoreText;
   public Text winnerText;
@@ -36,23 +42,28 @@ public class Game : MonoBehaviour
   public const bool WAIT_TIL_STATIC = true;
   private float turnTimer = 0;
 
+  //game starts on blue turn
   public GameState state = GameState.BLUETURN;
 
   //executed at the beginning
   private void Start()
   {
-      blueScoreText.text = blueScore.ToString();
-      redScoreText.text = redScore.ToString();
-      gameOverUI.SetActive(false);
-      Validate();
+    blueScoreText.text = blueScore.ToString();
+    redScoreText.text = redScore.ToString();
+    gameOverUI.SetActive(false);
+    Validate();
 
-      // note that the order must be this way
-      SpawnInfectableCells();
-      SpawnObstacles();
-      //sets blue player and red player aiming to start as blue turn
-      bluePlayer.aimer.SetActive(true);
-      redPlayer.GetComponent<SpriteRenderer>().color = Color.gray;
-      redPlayer.aimer.SetActive(false);
+    //initialize color variables
+    brightRed = new Color(254, 44, 69);
+    brightGreen = new Color(81, 255, 192);
+
+    // note that the order must be this way
+    SpawnInfectableCells();
+    SpawnObstacles();
+    //sets blue player and red player aiming to start as blue turn
+    bluePlayer.aimer.SetActive(true);
+    redPlayer.GetComponent<SpriteRenderer>().color = Color.gray;
+    redPlayer.aimer.SetActive(false);
   }
 
 
@@ -130,14 +141,14 @@ public class Game : MonoBehaviour
       // show whose turn it is
       if (state == GameState.BLUETURN)
       {
-        turnText.text = "Green's Turn";
-        turnText.color = Color.green;
+        turnText.text = "Green Turn";
+        turnText.color = brightGreen;
 
       }
       else if (state == GameState.REDTURN)
       {
-        turnText.text = "Red's Turn";
-        turnText.color = Color.red;
+        turnText.text = "Red Turn";
+        turnText.color = brightRed;
       }
     }
 

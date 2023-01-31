@@ -6493,7 +6493,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8275ca163675e458a87285a60848acae, type: 3}
+    m_Font: {fileID: 12800000, guid: ccea4601bc46d44ccba0a4631c41d73c, type: 3}
     m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
