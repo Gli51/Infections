@@ -36,7 +36,7 @@ public class Game : MonoBehaviour
   public Text turnText;
 
   public const int TOTAL_CELLS = 10;
-  public const int TOTAL_OBSTACLES = 10;
+  public const int TOTAL_OBSTACLES = 6;
   public const float TURN_WAIT_TIME = 1.0f; // 1 second
   public const float STATIC_SPEED = 0.1f; // minimum speed that is considered static
   public const bool WAIT_TIL_STATIC = true;
