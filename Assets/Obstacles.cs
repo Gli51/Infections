@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
+using ElRaccoone.Tweens;
+
 
 public class Obstacles : MonoBehaviour
 {
@@ -10,6 +12,9 @@ public class Obstacles : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Sprite sprite;
 
+    private bool duringAnimation;
+    public const float ANIMATION_TIME = 0.08f;
+    public const float ANIMATION_SCALE = 1.05f;
     private void Awake()
     {
         gameManager = FindObjectOfType<Game>();
@@ -31,6 +36,18 @@ public class Obstacles : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+      if (duringAnimation) {
+        return;
+      }
+      this.gameObject.TweenLocalScale(new Vector3(ANIMATION_SCALE, ANIMATION_SCALE, 0), ANIMATION_TIME).SetEaseQuartInOut().SetFrom(new Vector3(1f, 1f, 0)).SetOnComplete(() => {
+        this.gameObject.TweenLocalScale(new Vector3(1f, 1f, 0), ANIMATION_TIME).SetEaseQuartInOut();
+        duringAnimation = false;
+      }).SetOnCancel(() => {
+        this.gameObject.TweenLocalScale(new Vector3(1f, 1f, 0), ANIMATION_TIME).SetEaseQuartInOut();
+        duringAnimation = false;
+      }).SetOnStart(() => {
+        duringAnimation = true;
+      });
     }
     
     public bool isTouching(List<Component> other) {
