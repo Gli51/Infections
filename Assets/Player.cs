@@ -45,6 +45,12 @@ public class Player : MonoBehaviour
 
 private void Update()
     {
+      // claimp the speed of the player
+      if (rb.velocity.magnitude > maxSpeed)
+      {
+        rb.velocity = rb.velocity.normalized * maxSpeed;
+      }
+
         //aiming arrow follows mouse
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         Vector3 rotation = mousePos - transform.position;
