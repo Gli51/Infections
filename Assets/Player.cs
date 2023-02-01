@@ -48,6 +48,15 @@ private void Update()
     {
       // spawn fake player
       FakePlayer fp = Instantiate(fakePlayerPrefab, transform.position, transform.rotation);
+      if (infectedState == 1) {
+        fp.GetComponent<SpriteRenderer>().color = Color.green;
+        fp.gameObject.layer = LayerMask.NameToLayer("TransparentFX");
+      }
+      else {
+        fp.GetComponent<SpriteRenderer>().color = Color.red;
+        fp.gameObject.layer = LayerMask.NameToLayer("Water");
+      }
+      Physics2D.IgnoreCollision(fp.GetComponent<Collider2D>(), GetComponent<Collider2D>());
 
       // claimp the speed of the player
       if (rb.velocity.magnitude > maxSpeed)

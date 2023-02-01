@@ -64,11 +64,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9210060224420458448, guid: 9dc74220cd4cd439daabc75847e06400,
         type: 3}
-      propertyPath: maxSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 9210060224420458448, guid: 9dc74220cd4cd439daabc75847e06400,
-        type: 3}
       propertyPath: infectedState
       value: 2
       objectReference: {fileID: 0}

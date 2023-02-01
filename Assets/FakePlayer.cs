@@ -3,6 +3,7 @@ using UnityEngine;
 public class FakePlayer : MonoBehaviour
 {
   public Rigidbody2D rb;
+  public GameObject aimer;
 
   public float maxSpeed;
 
@@ -16,7 +17,8 @@ public class FakePlayer : MonoBehaviour
 
   private void Start()
   {
-
+    if (aimer != null)
+      aimer.SetActive(false);
     Move();
   }
 
@@ -39,6 +41,12 @@ public class FakePlayer : MonoBehaviour
     if (life < 0.0f)
     {
       Destroy(gameObject);
+    }
+
+    // update rotation in the direction of movement
+    if (rb.velocity.magnitude > 0.0f)
+    {
+      transform.rotation = Quaternion.LookRotation(Vector3.forward, rb.velocity);
     }
   }
 

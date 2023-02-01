@@ -17,6 +17,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9210060224420458444, guid: 9dc74220cd4cd439daabc75847e06400,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 9210060224420458444, guid: 9dc74220cd4cd439daabc75847e06400,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.12
+      objectReference: {fileID: 0}
     - target: {fileID: 9210060224420458447, guid: 9dc74220cd4cd439daabc75847e06400,
         type: 3}
       propertyPath: m_Name
@@ -31,6 +41,27 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 9210060224420458450, guid: 9dc74220cd4cd439daabc75847e06400,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9210060224420458450, guid: 9dc74220cd4cd439daabc75847e06400,
+        type: 3}
+      propertyPath: m_FlipY
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9210060224420458450, guid: 9dc74220cd4cd439daabc75847e06400,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9c8ff307cc865cc3a9fb228d22f2c70a,
+        type: 3}
+    - target: {fileID: 9210060224420458450, guid: 9dc74220cd4cd439daabc75847e06400,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9210060224420458451, guid: 9dc74220cd4cd439daabc75847e06400,
         type: 3}
@@ -112,5 +143,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  aimer: {fileID: 8598692992181084718}
   maxSpeed: 40
   life: 1
+--- !u!1 &8598692992181084718 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5448508502386476704, guid: 9dc74220cd4cd439daabc75847e06400,
+    type: 3}
+  m_PrefabInstance: {fileID: 4379834382566368398}
+  m_PrefabAsset: {fileID: 0}
