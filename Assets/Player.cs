@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
   public Game game;
   public float maxSpeed;
   public Vector2 startPos, endPos, direction;
+  public FakePlayer fakePlayerPrefab;
   public bool canMove;
   private Vector3 mousePos;
   private Camera mainCam;
@@ -37,7 +38,7 @@ public class Player : MonoBehaviour
         // get direction from player to mouse position
         Vector3 direction = (worldPos - transform.position);
         Vector2 direction2D = new Vector2(direction.x, direction.y).normalized;
-        rb.AddForce(direction * maxSpeed);
+        rb.AddForce(direction2D * maxSpeed);
         canMove = false;
         aimer.SetActive(false);
     }
@@ -45,6 +46,9 @@ public class Player : MonoBehaviour
 
 private void Update()
     {
+      // spawn fake player
+      FakePlayer fp = Instantiate(fakePlayerPrefab, transform.position, transform.rotation);
+
       // claimp the speed of the player
       if (rb.velocity.magnitude > maxSpeed)
       {
