@@ -223,7 +223,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   infectedState: 1
   game: {fileID: 0}
-  maxSpeed: 40
+  maxSpeed: 50
   startPos: {x: 0, y: 0}
   endPos: {x: 0, y: 0}
   direction: {x: 0, y: 0}

@@ -144,8 +144,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   aimer: {fileID: 8598692992181084718}
-  maxSpeed: 40
-  life: 1
+  maxSpeed: 50
+  life: 3
 --- !u!1 &8598692992181084718 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5448508502386476704, guid: 9dc74220cd4cd439daabc75847e06400,

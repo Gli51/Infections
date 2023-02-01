@@ -4,7 +4,7 @@ public class ImaginaryRigidBody : MonoBehaviour
 {
   private Rigidbody2D rb;
   private Collider2D collision;
-  private GameObject shadow;
+  public GameObject shadow;
 
   void Sync()
   {

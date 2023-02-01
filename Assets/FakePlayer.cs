@@ -38,7 +38,7 @@ public class FakePlayer : MonoBehaviour
   {
     life -= Time.deltaTime;
 
-    if (life < 0.0f)
+    if (life < 0.0f || rb.velocity.magnitude < 0.1f)
     {
       Destroy(gameObject);
     }
