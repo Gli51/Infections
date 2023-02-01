@@ -16,6 +16,7 @@ public class Game : MonoBehaviour
   public List<InfectableCell> cells; // tracking all cells
   public GameObject gameOverUI;
   private string winner;
+  private GameObject[] cellCount;
 
   //red and green colors
   public Color brightRed;
@@ -35,7 +36,8 @@ public class Game : MonoBehaviour
   public Text winnerText;
   public Text turnText;
 
-  public const int TOTAL_CELLS = 10;
+  public int TOTAL_CELLS;
+  public int neutralCells;
   public const int TOTAL_OBSTACLES = 6;
   public const float TURN_WAIT_TIME = 1.0f; // 1 second
   public const float STATIC_SPEED = 0.1f; // minimum speed that is considered static
@@ -57,9 +59,13 @@ public class Game : MonoBehaviour
     brightRed = new Color32(254, 44, 69, 255);
     brightGreen = new Color32(81, 255, 192, 255);
 
+    //count how many cellprefabs are in scene
+     cellCount = GameObject.FindGameObjectsWithTag("Asteroid");
+    TOTAL_CELLS = cellCount.Length;
+
     // note that the order must be this way
-    SpawnInfectableCells();
-    SpawnObstacles();
+    //SpawnInfectableCells();
+    //SpawnObstacles();
     //sets blue player and red player aiming to start as blue turn
     bluePlayer.aimer.SetActive(true);
     redPlayer.GetComponent<SpriteRenderer>().color = Color.gray;
@@ -198,17 +204,31 @@ public void IncreaseScore(Player player)
         blueScore += 1;
         blueScoreText.text = blueScore.ToString();
     }
-    //checks if any player has the full score
-    if (redScore == TOTAL_CELLS)
+
+    if ((TOTAL_CELLS - (blueScore + redScore)) == 0)
     {
+      if (redScore > blueScore)
+      {
         winner = "Red Player";
         state = GameState.END;
-    }
-    else if (blueScore == TOTAL_CELLS)
-    {
+      }
+      else if (blueScore > redScore)
+      {
         winner = "Blue Player";
         state = GameState.END;
+      }
     }
+    ////checks if any player has the full score
+    //if (redScore == TOTAL_CELLS)
+    //{
+    //    winner = "Red Player";
+    //    state = GameState.END;
+    //}
+    //else if (blueScore == TOTAL_CELLS)
+    //{
+    //    winner = "Blue Player";
+    //    state = GameState.END;
+    //}
 }
 
   public void DecreaseScore(Player player)

@@ -46,24 +46,24 @@ public class Player : MonoBehaviour
 
   private void Update()
   {
-    // spawn fake player
-    if ((game.state == GameState.BLUETURN && infectedState == 1) || (game.state == GameState.REDTURN && infectedState == 2))
-    {
+    //// spawn fake player
+    //if ((game.state == GameState.BLUETURN && infectedState == 1) || (game.state == GameState.REDTURN && infectedState == 2))
+    //{
 
-      FakePlayer fp = Instantiate(fakePlayerPrefab, transform.position, transform.rotation);
-      if (infectedState == 1)
-      {
-        fp.GetComponent<SpriteRenderer>().color = Color.green;
-        fp.gameObject.layer = LayerMask.NameToLayer("TransparentFX");
-      }
-      else
-      {
-        fp.GetComponent<SpriteRenderer>().color = Color.red;
-        fp.gameObject.layer = LayerMask.NameToLayer("Water");
-      }
-      Physics2D.IgnoreCollision(fp.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-      Physics2D.IgnoreCollision(fp.GetComponent<Collider2D>(), GetComponent<ImaginaryRigidBody>().shadow.GetComponent<Collider2D>());
-    }
+    //  FakePlayer fp = Instantiate(fakePlayerPrefab, transform.position, transform.rotation);
+    //  if (infectedState == 1)
+    //  {
+    //    fp.GetComponent<SpriteRenderer>().color = Color.green;
+    //    fp.gameObject.layer = LayerMask.NameToLayer("TransparentFX");
+    //  }
+    //  else
+    //  {
+    //    fp.GetComponent<SpriteRenderer>().color = Color.red;
+    //    fp.gameObject.layer = LayerMask.NameToLayer("Water");
+    //  }
+    //  Physics2D.IgnoreCollision(fp.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+    //  Physics2D.IgnoreCollision(fp.GetComponent<Collider2D>(), GetComponent<ImaginaryRigidBody>().shadow.GetComponent<Collider2D>());
+    //}
 
     // claimp the speed of the player
     if (rb.velocity.magnitude > maxSpeed)
