@@ -11,6 +11,7 @@ public class Obstacles : MonoBehaviour
   public CircleCollider2D circleCollider;
   public SpriteRenderer spriteRenderer;
   public Sprite sprite;
+  public AudioSource audioPlayer;
 
   private bool duringAnimation;
   public const float ANIMATION_TIME = 0.08f;
@@ -42,7 +43,8 @@ public class Obstacles : MonoBehaviour
     // don't apply bouncy animation between two obstacles
     if (!collision.gameObject.CompareTag("Bullet"))
     {
-
+      print("bounce");
+      audioPlayer.Play();
       if (duringAnimation)
       {
         return;
