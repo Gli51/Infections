@@ -647,26 +647,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2361638981684300742, guid: 0eade357d98a048f2a286f15980b01c4,
         type: 3}
-      propertyPath: m_Size.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2361638981684300742, guid: 0eade357d98a048f2a286f15980b01c4,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2361638981684300742, guid: 0eade357d98a048f2a286f15980b01c4,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2361638981684300742, guid: 0eade357d98a048f2a286f15980b01c4,
-        type: 3}
-      propertyPath: m_EdgeRadius
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2361638981684300742, guid: 0eade357d98a048f2a286f15980b01c4,
-        type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 1.92
       objectReference: {fileID: 0}
@@ -750,11 +730,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2361638981684300762, guid: 0eade357d98a048f2a286f15980b01c4,
-        type: 3}
-      propertyPath: maxSpeed
-      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0eade357d98a048f2a286f15980b01c4, type: 3}
@@ -6377,30 +6352,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 9054389836670234055, guid: a329a00d574714d419bbfcef3a0acbb8,
-        type: 3}
-      propertyPath: maxSpeed
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 9054389836670234072, guid: a329a00d574714d419bbfcef3a0acbb8,
         type: 3}
       propertyPath: m_Name
       value: RedPlayer Variant
-      objectReference: {fileID: 0}
-    - target: {fileID: 9054389836670234075, guid: a329a00d574714d419bbfcef3a0acbb8,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9054389836670234075, guid: a329a00d574714d419bbfcef3a0acbb8,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9054389836670234075, guid: a329a00d574714d419bbfcef3a0acbb8,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9054389836670234075, guid: a329a00d574714d419bbfcef3a0acbb8,
         type: 3}

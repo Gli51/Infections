@@ -223,7 +223,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   infectedState: 1
   game: {fileID: 0}
-  maxSpeed: 20
+  maxSpeed: 40
   startPos: {x: 0, y: 0}
   endPos: {x: 0, y: 0}
   direction: {x: 0, y: 0}
@@ -289,7 +289,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
 --- !u!82 &9210060224420458454
 AudioSource:

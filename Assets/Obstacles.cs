@@ -43,7 +43,6 @@ public class Obstacles : MonoBehaviour
     // don't apply bouncy animation between two obstacles
     if (!collision.gameObject.CompareTag("Bullet"))
     {
-      print("bounce");
       audioPlayer.Play();
       if (duringAnimation)
       {
