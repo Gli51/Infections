@@ -137,7 +137,7 @@ public class Game : MonoBehaviour
       return;
     }
 
-    if (Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.KeypadEnter)
+    if (Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.KeypadEnter))
     {
       SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
