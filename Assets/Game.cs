@@ -137,7 +137,7 @@ public class Game : MonoBehaviour
       return;
     }
 
-    if (Input.GetKeyDown(KeyCode.R))
+    if (Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.KeypadEnter)
     {
       SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -214,7 +214,7 @@ public void IncreaseScore(Player player)
       }
       else if (blueScore > redScore)
       {
-        winner = "Blue Player";
+        winner = "Green Player";
         state = GameState.END;
       }
     }
